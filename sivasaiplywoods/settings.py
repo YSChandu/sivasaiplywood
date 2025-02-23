@@ -32,7 +32,11 @@ SECRET_KEY = 'django-insecure-4!63)62=hngolfehyyi4n95phn#n_28fqj#dfaa8!5@1!kfwdr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+import os
+
+ALLOWED_HOSTS = ['https://sivasaiplywood.onrender.com']
+
+
 
 
 # Application definition

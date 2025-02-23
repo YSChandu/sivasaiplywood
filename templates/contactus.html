@@ -1,94 +1,139 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Plywood Emporium</title>
-    <link rel="stylesheet" href="{% static 's.css/styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <div class="logo">Plywood Emporium</div>
-        <nav>
-            <ul>
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'aboutus' %}">About Us</a></li>
-                <li><a href="{% url 'product' %}">Products</a></li>
-                <li><a href="{% url 'brands' %}">Brands</a></li>
-                <li><a href="{% url 'services' %}">Services</a></li>
-                <li><a href="{% url 'blog' %}">Blog</a></li>
-                <li><a href="{% url 'contactus' %}">Contact Us</a></li>
-            </ul>
-        </nav>
-        
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- ✅ HEADER WITH MOBILE MENU -->
+    <header class="bg-gray-900 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{% url 'index' %}" class="text-xl font-bold">Plywood Emporium</a>
+
+            <!-- Hamburger Menu -->
+            <button id="menu-toggle" class="block md:hidden text-2xl">
+                ☰
+            </button>
+
+            <nav>
+                <ul id="menu" class="hidden md:flex space-x-6">
+                    <li><a href="{% url 'index' %}" class="hover:text-yellow-400">Home</a></li>
+                    <li><a href="{% url 'aboutus' %}" class="hover:text-yellow-400">About Us</a></li>
+                    <li><a href="{% url 'product' %}" class="hover:text-yellow-400">Products</a></li>
+                    <li><a href="{% url 'brands' %}" class="hover:text-yellow-400">Brands</a></li>
+                    <li><a href="{% url 'services' %}" class="hover:text-yellow-400">Services</a></li>
+                    <li><a href="{% url 'blog' %}" class="hover:text-yellow-400">Blog</a></li>
+                    <li><a href="{% url 'contactus' %}" class="hover:text-yellow-400">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <h1>Contact Us</h1>
+    <!-- ✅ HERO SECTION -->
+    <section class="bg-gray-800 text-white text-center py-16">
+        <h1 class="text-4xl font-bold">Contact Us</h1>
     </section>
 
-    <section class="contact-content">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <form action="#" method="POST" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-            <div class="contact-info">
-                <h2>Contact Information</h2>
-                <p>Phone: 123-456-7890</p>
-                <p>Email: info@plywoodemporium.com</p>
-                <p>Address: 123 Main Street, City, Country</p>
+    <!-- ✅ CONTACT FORM & INFORMATION -->
+    <section class="container mx-auto py-12 px-4">
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Contact Form -->
+            <div class="bg-white shadow-md p-6 rounded-md">
+                <h2 class="text-3xl font-semibold mb-4">Get in Touch</h2>
+                <form action="#" method="POST" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-lg font-medium">Name:</label>
+                        <input type="text" id="name" name="name" required class="w-full p-2 border rounded-md focus:ring focus:ring-yellow-400">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium">Email:</label>
+                        <input type="email" id="email" name="email" required class="w-full p-2 border rounded-md focus:ring focus:ring-yellow-400">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-lg font-medium">Message:</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full p-2 border rounded-md focus:ring focus:ring-yellow-400"></textarea>
+                    </div>
+                    <button type="submit" class="bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600">Send Message</button>
+                </form>
             </div>
+
+            <!-- Contact Information -->
+            <div class="bg-gray-200 shadow-md p-6 rounded-md">
+                <h2 class="text-3xl font-semibold mb-4">Contact Information</h2>
+                <p><strong>📞 Phone:</strong> 123-456-7890</p>
+                <p><strong>📧 Email:</strong> info@plywoodemporium.com</p>
+                <p><strong>📍 Address:</strong> 123 Main Street, City, Country</p>
+            </div>
+
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="brands.html">Brands</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-            <div class="contact-info">
-                <p>Phone: 123-456-7890</p>
+    <!-- ✅ FOOTER -->
+    <footer class="bg-gray-900 text-white mt-16 py-8">
+        <div class="container mx-auto grid md:grid-cols-4 gap-8 px-4 text-center md:text-left">
+            
+            <!-- Navigation Links -->
+            <div>
+                <h3 class="font-semibold text-lg">Quick Links</h3>
+                <ul class="mt-4 space-y-2">
+                    <li><a href="{% url 'index' %}" class="hover:text-yellow-400">Home</a></li>
+                    <li><a href="{% url 'aboutus' %}" class="hover:text-yellow-400">About Us</a></li>
+                    <li><a href="{% url 'product' %}" class="hover:text-yellow-400">Products</a></li>
+                    <li><a href="{% url 'brands' %}" class="hover:text-yellow-400">Brands</a></li>
+                    <li><a href="{% url 'services' %}" class="hover:text-yellow-400">Services</a></li>
+                    <li><a href="{% url 'blog' %}" class="hover:text-yellow-400">Blog</a></li>
+                    <li><a href="{% url 'contactus' %}" class="hover:text-yellow-400">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3 class="font-semibold text-lg">Contact Us</h3>
+                <p class="mt-4">Phone: 123-456-7890</p>
                 <p>Email: info@plywoodemporium.com</p>
-                <p>Address: 123 Main Street, City, Country</p>
+                <p>123 Main Street, City, Country</p>
             </div>
-            <div class="social-media">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
+
+            <!-- Social Media -->
+            <div>
+                <h3 class="font-semibold text-lg">Follow Us</h3>
+                <div class="mt-4 space-x-4">
+                    <a href="#" class="hover:text-yellow-400">Facebook</a>
+                    <a href="#" class="hover:text-yellow-400">Twitter</a>
+                    <a href="#" class="hover:text-yellow-400">Instagram</a>
+                    <a href="#" class="hover:text-yellow-400">LinkedIn</a>
+                </div>
             </div>
-            <div class="newsletter">
-                <input type="email" placeholder="Subscribe for Updates and Offers">
-                <button>Subscribe</button>
+
+            <!-- Newsletter -->
+            <div>
+                <h3 class="font-semibold text-lg">Newsletter</h3>
+                <input type="email" placeholder="Enter your email"
+                    class="mt-4 p-2 w-full rounded bg-gray-800 border border-gray-600">
+                <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 w-full">
+                    Subscribe
+                </button>
             </div>
         </div>
-        <div class="footer-bottom">
+
+        <div class="text-center mt-8">
             <p>&copy; 2024 Plywood Emporium. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- ✅ JavaScript for Mobile Menu -->
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("menu").classList.toggle("hidden");
+        });
+    </script>
+
 </body>
 </html>

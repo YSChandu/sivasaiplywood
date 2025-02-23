@@ -2,135 +2,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IS:wght@100..400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siva Sai plywood</title>
-    <link rel="stylesheet" href="{% static 's.css/home.css' %}">
+    <title>Siva Sai Plywood</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <div class="logo">Siva Sai plywood</div>
-        <nav>
-            <ul>
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'aboutus' %}">About Us</a></li>
-                <li><a href="{% url 'product' %}">Products</a></li>
-                <li><a href="{% url 'brands' %}">Brands</a></li>
-                <li><a href="{% url 'services' %}">Services</a></li>
-                <li><a href="{% url 'blog' %}">Blog</a></li>
-                <li><a href="{% url 'contactus' %}">Contact Us</a></li>
-            </ul>
-        </nav>        
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- ✅ HEADER WITH MOBILE MENU -->
+    <header class="bg-gray-900 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{% url 'index' %}" class="text-xl font-bold">Siva Sai Plywood</a>
+
+            <!-- Hamburger Menu -->
+            <button id="menu-toggle" class="block md:hidden text-2xl">
+                ☰
+            </button>
+
+            <nav>
+                <ul id="menu" class="hidden md:flex space-x-6">
+                    <li><a href="{% url 'index' %}" class="hover:text-yellow-400">Home</a></li>
+                    <li><a href="{% url 'aboutus' %}" class="hover:text-yellow-400">About Us</a></li>
+                    <li><a href="{% url 'product' %}" class="hover:text-yellow-400">Products</a></li>
+                    <li><a href="{% url 'brands' %}" class="hover:text-yellow-400">Brands</a></li>
+                    <li><a href="{% url 'services' %}" class="hover:text-yellow-400">Services</a></li>
+                    <li><a href="{% url 'blog' %}" class="hover:text-yellow-400">Blog</a></li>
+                    <li><a href="{% url 'contactus' %}" class="hover:text-yellow-400">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <h1>Premium Plywood for Every Need</h1>
-        <p>Discover top brands and unmatched quality</p>
-        <a href='product' class="cta">Shop Now</a>
+    <!-- ✅ HERO SECTION -->
+    <section class="bg-gray-800 text-white text-center py-16">
+        <h1 class="text-4xl font-bold">Premium Plywood for Every Need</h1>
+        <p class="text-lg mt-2">Discover top brands and unmatched quality</p>
+        <a href="{% url 'product' %}" class="mt-4 inline-block bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600">
+            Shop Now
+        </a>
     </section>
 
-    <section class="featured-products">
-        <h2>Featured Products</h2>
-        <div class="product-grid">
-            <!-- Repeat this block for each product -->
-            {% for product in products%}
-            <div class="product">
-                <img src="product1.jpg" alt="Product 1">
-                <h3>{{product}}</h3>
-                <p>$100</p>
-                <a href="#" class="btn">View Details</a>
-                <a href="#" class="btn">Add to Cart</a>
+    <!-- ✅ FEATURED PRODUCTS -->
+    <section class="container mx-auto py-12 px-4">
+        <h2 class="text-3xl font-semibold text-center mb-8">Featured Products</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            {% for product in products %}
+            <div class="bg-white shadow-md p-6 rounded-md text-center">
+                <img src="{% static 'images/product1.jpg' %}" alt="Product Image" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2">{{ product }}</h3>
+                <p class="text-gray-600">$100</p>
+                <div class="mt-4">
+                    <a href="#" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Details</a>
+                    <a href="#" class="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Add to Cart</a>
+                </div>
             </div>
-            {%endfor%}
-            <!-- End of product block -->
+            {% endfor %}
         </div>
     </section>
 
-    <section class="brands">
-        <h2>Our Brands</h2>
-        <div class="brand-logos">
-            {% for brand in brands%}
-            <div class="brand">
-                <img src="{% static 'brand1.jpg' %}" alt="Brand 1">
-                <p>{{brand}}</p>
+    <!-- ✅ BRANDS SECTION -->
+    <section class="container mx-auto py-12 px-4 text-center">
+        <h2 class="text-3xl font-semibold mb-8">Our Brands</h2>
+        <div class="grid md:grid-cols-4 gap-8">
+            {% for brand in brands %}
+            <div>
+                <img src="{% static 'images/brand1.jpg' %}" alt="{{ brand }}" class="w-full h-24 object-contain">
+                <p class="mt-2 font-semibold">{{ brand }}</p>
             </div>
-            {%endfor%}
+            {% endfor %}
         </div>
     </section>
 
-    <section class="why-choose-us">
-        <h2>Why Choose Us?</h2>
-        <ul>
-            <li>Wide range of high-quality plywood</li>
-            <li>Trusted brands</li>
-            <li>Competitive prices</li>
-            <li>Expert advice and customer support</li>
-            <li>Fast and reliable delivery</li>
+    <!-- ✅ WHY CHOOSE US -->
+    <section class="bg-gray-200 py-12 text-center">
+        <h2 class="text-3xl font-semibold mb-6">Why Choose Us?</h2>
+        <ul class="space-y-4">
+            <li>✅ Wide range of high-quality plywood</li>
+            <li>✅ Trusted brands</li>
+            <li>✅ Competitive prices</li>
+            <li>✅ Expert advice and customer support</li>
+            <li>✅ Fast and reliable delivery</li>
         </ul>
     </section>
 
-    <section class="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial-carousel">
-            <!-- Repeat this block for each testimonial -->
-            <div class="testimonial">
-                <p>"Great quality plywood and excellent customer service!"</p>
-                <p>- John Doe</p>
+    <!-- ✅ FOOTER -->
+    <footer class="bg-gray-900 text-white mt-16 py-8">
+        <div class="container mx-auto grid md:grid-cols-4 gap-8 px-4 text-center md:text-left">
+            
+            <!-- Navigation Links -->
+            <div>
+                <h3 class="font-semibold text-lg">Quick Links</h3>
+                <ul class="mt-4 space-y-2">
+                    <li><a href="{% url 'index' %}" class="hover:text-yellow-400">Home</a></li>
+                    <li><a href="{% url 'aboutus' %}" class="hover:text-yellow-400">About Us</a></li>
+                    <li><a href="{% url 'product' %}" class="hover:text-yellow-400">Products</a></li>
+                    <li><a href="{% url 'brands' %}" class="hover:text-yellow-400">Brands</a></li>
+                    <li><a href="{% url 'services' %}" class="hover:text-yellow-400">Services</a></li>
+                    <li><a href="{% url 'blog' %}" class="hover:text-yellow-400">Blog</a></li>
+                    <li><a href="{% url 'contactus' %}" class="hover:text-yellow-400">Contact Us</a></li>
+                </ul>
             </div>
-            <!-- End of testimonial block -->
-        </div>
-    </section>
 
-    <section class="blog">
-        <h2>Latest from Our Blog</h2>
-        <div class="blog-posts">
-            <!-- Repeat this block for each blog post -->
-            <div class="blog-post">
-                <h3>Blog Post 1</h3>
-                <p>Excerpt from the blog post...</p>
-                <a href="{% static '#' %}" class="btn">Read More</a>
-            </div>
-            <!-- End of blog post block -->
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <ul class="footer-links">
-                <li><a href=''>Home</a></li>
-                <li><a href='aboutus'>About Us</a></li>
-                <li><a href='product'>Products</a></li>
-                <li><a href='brands' >Brands</a></li>
-                <li><a href='services' >Services</a></li>
-                <li><a href='blog'>Blog</li>
-                <li><a href='contactus' >Contact Us</a></li>
-            </ul>
-            <div class="contact-info">
-                <p>Phone: +918019808379</p>
+            <!-- Contact Info -->
+            <div>
+                <h3 class="font-semibold text-lg">Contact Us</h3>
+                <p class="mt-4">Phone: +918019808379</p>
                 <p>Email: sivasaiplywood@gmail.com</p>
-                <p>Address: SIVASAI PLYWOODS, Peddabavi Center, 53-1-333 Main Road, Christurajpuram, Gunadala, Vijayawada, Andhra Pradesh 520008</p>
+                <p>Address: SIVASAI PLYWOODS, Vijayawada, AP 520008</p>
             </div>
-            <div class="social-media">
-                <a href="">Facebook</a>
-                <a href="">Twitter</a>
-                <a href="">Instagram</a>
-                <a href="">LinkedIn</a>
+
+            <!-- Social Media -->
+            <div>
+                <h3 class="font-semibold text-lg">Follow Us</h3>
+                <div class="mt-4 space-x-4">
+                    <a href="#" class="hover:text-yellow-400">Facebook</a>
+                    <a href="#" class="hover:text-yellow-400">Twitter</a>
+                    <a href="#" class="hover:text-yellow-400">Instagram</a>
+                    <a href="#" class="hover:text-yellow-400">LinkedIn</a>
+                </div>
             </div>
-            <div class="newsletter">
-                <input type="email" placeholder="Subscribe for Updates and Offers">
-                <button>Subscribe</button>
+
+            <!-- Newsletter -->
+            <div>
+                <h3 class="font-semibold text-lg">Newsletter</h3>
+                <input type="email" placeholder="Enter your email"
+                    class="mt-4 p-2 w-full rounded bg-gray-800 border border-gray-600">
+                <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 w-full">
+                    Subscribe
+                </button>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Siva sai plywood. All rights reserved.</p>
+
+        <div class="text-center mt-8">
+            <p>&copy; 2024 Siva Sai Plywood. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- ✅ JavaScript for Mobile Menu -->
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("menu").classList.toggle("hidden");
+        });
+    </script>
+
 </body>
 </html>

@@ -134,14 +134,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = "/static/"
 
-# ✅ Add this line
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # This is required for collectstatic to work in production
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-# ✅ Ensure Whitenoise is used for serving static files
+
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 

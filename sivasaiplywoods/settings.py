@@ -34,7 +34,7 @@ DEBUG = True
 
 import os
 
-ALLOWED_HOSTS = ['https://sivasaiplywood.onrender.com']
+ALLOWED_HOSTS = ['sivasaiplywood.onrender.com']
 
 
 

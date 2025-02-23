@@ -6,18 +6,37 @@ body {
     color: #333;
 }
 
+/* ===== HEADER ===== */
 header {
     background-color: #333;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
+/* LOGO */
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* HAMBURGER MENU */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 nav ul {
@@ -38,43 +57,135 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #333;
+    color: #f0a500;
 }
 
-.search-bar input {
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: none;
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
 }
 
+/* ===== HERO SECTION ===== */
 .hero {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 5rem 2rem;
+    padding: 6rem 1.5rem;
+    margin-top: 50px;
 }
 
 .hero h1 {
     margin: 0;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        padding: 4rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ===== GENERAL CONTENT ===== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
+/* ===== PRODUCT GRID ===== */
+.featured-products .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.featured-products .product {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.3s;
+}
+
+.featured-products .product:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Products */
+@media (max-width: 768px) {
+    .featured-products .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== BLOG GRID ===== */
+.blog-content .blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.blog-content .blog-post {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.blog-content .blog-post:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Blog Posts */
+@media (max-width: 768px) {
+    .blog-content .blog-posts {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== FOOTER ===== */
 footer {
     background-color: #333;
     color: #fff;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .footer-links {
@@ -93,190 +204,18 @@ footer {
 }
 
 .footer-links li a:hover {
-    color: #333;
+    color: #f0a500;
 }
 
-.contact-info, .social-media, .newsletter {
-    margin-top: 1rem;
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
-.newsletter input {
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: none;
-    margin-right: 0.5rem;
-}
-
-.newsletter button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #333;
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.newsletter button:hover {
-    background-color: #333;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.875rem;
-}
-
-/* About Us Page */
-.about-content h2 {
-    margin-top: 2rem;
-    font-size: 2rem;
-}
-
-.about-content p {
-    margin: 1rem 0;
-    line-height: 1.6;
-}
-
-/* Services Page */
-.services-content .service {
-    margin: 2rem 0;
-}
-
-.services-content .service h3 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.services-content .service p {
-    line-height: 1.6;
-}
-
-/* Products Page */
-.featured-products .product-grid {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.featured-products .product {
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.featured-products .product:hover {
-    transform: translateY(-5px);
-}
-
-.featured-products .product img {
-    width: 100%;
-    height: auto;
-}
-
-.featured-products .product h3 {
-    margin: 1rem 0;
-}
-
-.featured-products .product p {
-    padding: 0 1rem;
-    font-size: 0.9rem;
-}
-
-.featured-products .product .btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.featured-products .product .btn:hover {
-    background-color:#333;
-}
-
-/* Brands Page */
-.brands-content .brand-logos {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.brands-content .brand {
-    flex: 1 1 calc(33% - 2rem);
-    text-align: center;
-}
-
-.brands-content .brand img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.brands-content .brand p {
-    margin-top: 1rem;
-    font-size: 1rem;
-}
-
-/* Blog Page */
-.blog-content .blog-posts {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.blog-content .blog-post {
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s;
-    width: calc(33% - 2rem);
-}
-
-.blog-content .blog-post:hover {
-    transform: translateY(-5px);
-}
-
-.blog-content .blog-post img {
-    width: 100%;
-    height: auto;
-}
-
-.blog-content .blog-post h3 {
-    margin: 1rem 0;
-}
-
-.blog-content .blog-post p {
-    padding: 0 1rem;
-    font-size: 0.9rem;
-}
-
-.blog-content .blog-post .btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color:white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s;
-    margin-bottom: 1rem;
-}
-
-.blog-content .blog-post .btn:hover {
-    background-color: #333;
-}
-
-/* Contact Us Page */
+/* ===== CONTACT FORM ===== */
 .contact-content .contact-form {
     max-width: 600px;
     margin: 2rem auto;
@@ -295,7 +234,7 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-.contact-content .contact-form input, 
+.contact-content .contact-form input,
 .contact-content .contact-form textarea {
     width: 100%;
     padding: 0.75rem;
@@ -307,7 +246,7 @@ footer {
 .contact-content .contact-form button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: #333;
+    background-color: #f0a500;
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -318,73 +257,33 @@ footer {
 }
 
 .contact-content .contact-form button:hover {
-    background-color: #333;
+    background-color: #d08900;
 }
 
-.contact-info p {
-    margin: 0.5rem 0;
-}
-
-/* Specific page styles */
-.about-content, .services-content, .contact-content, .brands-content, .blog-content {
-    padding: 2rem;
-}
-
-.about-content p {
-    line-height: 1.6;
-}
-
-.services-content .service {
-    margin: 2rem 0;
-}
-
-.services-content .service h3 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.services-content .service p {
-    line-height: 1.6;
-}
-
-/* Responsive design */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .hero {
-        padding: 3rem 1rem;
-    }
-
-    .featured-products .product-grid {
-        flex-direction: column;
-    }
-
     .featured-products .product {
         width: 100%;
-        margin-bottom: 1rem;
     }
 
     .blog-content .blog-post {
         width: 100%;
     }
-}
 
-@media (max-width: 480px) {
     .footer-content {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
     }
 
     .footer-links {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-
-    .contact-info, .social-media, .newsletter {
-        text-align: center;
     }
 }

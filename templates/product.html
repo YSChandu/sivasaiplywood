@@ -13,15 +13,15 @@
         <div class="logo">Siva Sai Plywood</div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href='aboutus'>About Us</a></li>
-                <li><a href='product'>Products</a></li>
-                <li><a href='brands' >Brands</a></li>
-                <li><a href='services' >Services</a></li>
-                <li><a href='blog'>Blog</a></li>
-                <li><a href='contactus' >Contact Us</a></li>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About Us</a></li>
+                <li><a href="{% url 'product' %}">Products</a></li>
+                <li><a href="{% url 'brands' %}">Brands</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="{% url 'contactus' %}">Contact Us</a></li>
             </ul>
-        </nav>
+        </nav>        
         <div class="search-bar">
             <input type="text" placeholder="Search...">
         </div>
